@@ -7,4 +7,5 @@ urlpatterns = [
     path('customer/', views.customer_page, name='customer_page'),
     path('employee', views.employee_page, name='employee_page'),
     path('search_delivery/', views.search_delivery, name='search_delivery'),
+    path('create_order/', views.create_order, name='create_order'),
 ]

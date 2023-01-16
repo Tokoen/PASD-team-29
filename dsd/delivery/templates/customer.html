@@ -1,17 +1,14 @@
 {% block content %}
-<h2>Customer Page</h2>
+<h2>Welcome {{user.username}}, how can I help you?</h2>
 <form method="post" action="{% url 'search_delivery' %}">
   {% csrf_token %}
-  <label for="delivery_id">Delivery ID:</label>
-  <input type="text" id="delivery_id" name="delivery_id" required>
-  <button type="submit">Search</button>
+  <button type="submit">Search for delivery</button>
 </form>
-{% if delivery %}
-  <p>{{ delivery.expected_delivery_datetime }}</p>
-  <p>{{ delivery.actual_delivery_datetime }}</p>
-  <p>{{ delivery.order_id }}</p>
-  <p>{{ delivery.cost_in_cents }}</p>
-  <p>{{ delivery.status }}</p>
-  <p>{{ delivery.id }}</p>
-{% endif %}
+
+<form method="post" action="{% url 'create_order' %}">
+  {% csrf_token %}
+  <button type="submit">Create order</button>
+  <p><a href="{% url 'logout' %}">Log Out</a></p>
+</form>
+
 {% endblock %}

@@ -1,0 +1,57 @@
+{% block content %}
+  <h2>Create Order</h2>
+  <form method="post" action="{% url 'create_order' %}">
+    {% csrf_token %}
+    <label for="send_date">Send date:</label>
+    <input type="text" id="send_date" name="send_date" required>
+    <br/>
+    <label for="x_in_mm">Width::</label>
+    <input type="text" id="x_in_mm" name="x_in_mm" required>
+    <br/>
+    <label for="y_in_mm">Length:</label>
+    <input type="text" id="y_in_mm" name="y_in_mm" required>
+    <br/>
+    <label for="z_in_mm">Height:</label>
+    <input type="text" id="z_in_mm" name="z_in_mm" required>
+    <br/>
+    <label for="is_breakable">Breakable? (True or False):</label>
+    <input type="text" id="is_breakable" name="is_breakable" required>
+    <br/>
+    <label for="is_perishable">Perishable? (True or False):</label>
+    <input type="text" id="is_perishable" name="is_perishable" required>
+    <br/>
+    <br/>
+    <label for="sender_name">Sender name:</label>
+    <input type="text" id="sender_name" name="sender_name" required>
+    <br/>
+    <label for="sender_address">Sender address:</label>
+    <input type="text" id="sender_address" name="sender_address" required>
+    <br/>
+    <label for="sender_zipcode">Sender zipcode:</label>
+    <input type="text" id="sender_zipcode" name="sender_zipcode" required>
+    <br/>
+    <label for="sender_city">Sender city:</label>
+    <input type="text" id="sender_city" name="sender_city" required>
+    <br/>
+    <label for="sender_country">Sender country:</label>
+    <input type="text" id="sender_country" name="sender_country" required>
+    <br/>
+    <br/>
+    <label for="receiver_name">Receiver name:</label>
+    <input type="text" id="receiver_name" name="receiver_name" required>
+    <br/>
+    <label for="receiver_address">Receiver address:</label>
+    <input type="text" id="receiver_address" name="receiver_address" required>
+    <br/>
+    <label for="receiver_zipcode">Receiver zipcode:</label>
+    <input type="text" id="receiver_zipcode" name="receiver_zipcode" required>
+    <br/>
+    <label for="receiver_city">Receiver city:</label>
+    <input type="text" id="receiver_city" name="receiver_city" required>
+    <br/>
+    <label for="receiver_country">Receiver country:</label>
+    <input type="text" id="receiver_country" name="receiver_country" required>
+    <br/>
+    <button type="submit">Create</button>
+  </form>
+{% endblock %}
