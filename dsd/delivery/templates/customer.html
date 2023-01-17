@@ -1,14 +1,19 @@
 {% block content %}
-<h2>Welcome {{user.username}}, how can I help you?</h2>
-<form method="post" action="{% url 'search_delivery' %}">
-  {% csrf_token %}
-  <button type="submit">Search for delivery</button>
-</form>
+{% if user.is_authenticated %}
+  <h2>Welcome {{user.username}}, how can I help you?</h2>
+  <form method="post" action="{% url 'search_delivery' %}">
+    {% csrf_token %}
+    <button type="submit">Search for delivery</button>
+  </form>
 
-<form method="post" action="{% url 'create_order' %}">
-  {% csrf_token %}
-  <button type="submit">Create order</button>
-  <p><a href="{% url 'logout' %}">Log Out</a></p>
-</form>
+  <form method="post" action="{% url 'create_order' %}">
+    {% csrf_token %}
+    <button type="submit">Create order</button>
+  </form>
+{% else %}
+  <p>You are not logged in</p>
+  <a href="{% url 'login' %}">Log In</a>
+{% endif %}
+
 
 {% endblock %}

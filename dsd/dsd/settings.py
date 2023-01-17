@@ -126,3 +126,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = "/delivery"
 
 LOGOUT_REDIRECT_URL = "/login"
+
+STRIPE_PUBLIC_KEY = "pk_test_51MQySnKWAYte5rCaz3lK1OW2SboEWDcmu6FVFlGC4xfKIO4Td027lj7pHZ5ehNlm2VkqlQRzKkbHqjyqie1LwjNm00Igp2nTcj"
+
+STRIPE_SECRET_KEY = "sk_test_51MQySnKWAYte5rCaKTUJacVZwcQvmfwDfAWUYqaxbyNMmwXjhwGfvlqOjRqZG1JCpA5UuY8j6eLe9dEOafCAkXWT00QymW832V"
