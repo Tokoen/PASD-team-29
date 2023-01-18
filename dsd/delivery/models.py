@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 class Sender_Info(models.Model):
     name = models.CharField(max_length=50, primary_key=True)
@@ -43,6 +44,14 @@ class Price(models.Model):
     price = models.IntegerField(default=0)
 
 
+class Delivery_Driver(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    first_name = models.CharField(max_length= 100)
+    last_name = models.CharField(max_length= 100)
+    deliveries = models.ManyToManyField(Delivery)
+    x_in_mm = models.IntegerField()
+    y_in_mm = models.IntegerField()
+    z_in_mm = models.IntegerField() 
 
 
 

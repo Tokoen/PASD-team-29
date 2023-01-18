@@ -1,0 +1,17 @@
+{%block content%}
+{%if user.is_authenticated%}
+<h2>Welcome {{user.username}}, what do you want to do?</h2>
+<form method="post" action = "{%url 'update_delivery' %}">
+    {%csrf_token%}
+    <button type="submit">Update delivery</button>
+</form>
+<form method="get" action="{% url 'get_overview_deliveries' %}">
+    {% csrf_token %}
+    <button type="submit">See all your deliveries</button>
+  </form>
+{% else %}
+  <p>You are not logged in</p>
+  <a href="{% url 'login' %}">Log In</a>
+{% endif %}
+
+{%endblock%}

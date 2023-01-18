@@ -1,0 +1,27 @@
+{% block content %}
+<h2>See all of your delivery</h2>
+<table>
+    <thead>
+      <tr>
+        <th>Expected datetime</th>
+        <th>Actual datetime</th>
+        <th>Order id </th>
+        <th>Cost in cents</th>
+        <th>Status </th>
+        <th>id     </th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for delivery in deliveries%}
+        <tr>
+            <th>{{ delivery.expected_delivery_datetime }}</th>
+            <th>{{ delivery.actual_delivery_datetime }}</th>
+            <th>{{ delivery.order_id }}</th>
+            <th>{{ delivery.cost_in_cents }}</th>
+            <th>{{ delivery.status }}</th>
+            <th>{{ delivery.id }}</th>          
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

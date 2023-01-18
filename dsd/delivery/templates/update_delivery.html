@@ -1,0 +1,18 @@
+{% block content %}
+<h2>Update the delivery</h2>
+<form method="post" action="{% url 'update_delivery' %}">
+  {% csrf_token %}
+  <label for="delivery_id">Delivery ID:</label>
+  <input type="text" id="delivery_id" name="delivery_id" required>
+  <!--input type="checkbox" name="is_completed" {% if is_completed %}checked{% endif %} -->
+  <button type="submit">Update</button>
+</form>
+{% if delivery %}
+  <p>{{ delivery.expected_delivery_datetime }}</p>
+  <p>{{ delivery.actual_delivery_datetime }}</p>
+  <p>{{ delivery.order_id }}</p>
+  <p>{{ delivery.cost_in_cents }}</p>
+  <p>{{ delivery.status }}</p>
+  <p>{{ delivery.id }}</p>
+{% endif %}
+{% endblock %}
