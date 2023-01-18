@@ -1,0 +1,16 @@
+{% block content %}
+<h2>Search for your delivery address</h2>
+<form method="post" action="{% url 'get_address' %}">
+  {% csrf_token %}
+  <label for="delivery_id">Delivery ID:</label>
+  <input type="text" id="delivery_id" name="delivery_id" required>
+  <button type="submit">Search</button>
+</form>
+{% if address %}
+  <p> Delivery address  </p>  
+  <p>{{ address.street_and_number }}</p>
+  <p>{{ address.zip_code }}</p>
+  <p>{{ address.city }}</p>
+  <p>{{ address.country }}</p>
+{% endif %}
+{% endblock %}

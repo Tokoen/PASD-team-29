@@ -105,3 +105,12 @@ def update_delivery(request):
 def get_overview_deliveries(request):
     deliveries = request.user.delivery_driver.deliveries.all()
     return render(request,"get_overview_deliveries.html",{'deliveries':deliveries})
+
+def get_address(request):
+    if request.POST.get('delivery_id'):
+        delivery_id = request.POST.get('delivery_id')
+        delivery = get_object_or_404(Delivery,pk=delivery_id)
+        order = get_object_or_404(Order,pk = delivery.order_id)
+        address = order.receiver_info
+        return render(request,"get_address.html",{'address':address})
+    return render(request,"get_address.html")
