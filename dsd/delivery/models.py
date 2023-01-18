@@ -49,9 +49,6 @@ class Delivery_Driver(models.Model):
     first_name = models.CharField(max_length= 100)
     last_name = models.CharField(max_length= 100)
     deliveries = models.ManyToManyField(Delivery)
-    x_in_mm = models.IntegerField()
-    y_in_mm = models.IntegerField()
-    z_in_mm = models.IntegerField() 
 
 
 

@@ -94,17 +94,10 @@ def create_checkout(request):
 
 def update_delivery(request):
     if request.POST.get('delivery_id'):
-        x_in_mm = request.user.delivery_driver.x_in_mm 
-        y_in_mm = request.user.delivery_driver.y_in_mm
-        z_in_mm = request.user.delivery_driver.z_in_mm
         delivery_id = request.POST.get('delivery_id')
         delivery = get_object_or_404(Delivery, pk=delivery_id)
-        order = get_object_or_404(Order,pk=delivery.order_id)
-        order.x_in_mm = x_in_mm
-        order.y_in_mm = y_in_mm
-        order.z_in_mm = z_in_mm
+        delivery.status = "Delivered"
         delivery.save()
-        order.save()
 #        if request.POST.get('is_completed'):
 #            request.user.delivery_driver.deliveries.remove(delivery)
     return render(request,'update_delivery.html')
